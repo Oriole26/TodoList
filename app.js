@@ -16,16 +16,14 @@ function addTodo(todo) {
 		
 	list.appendChild(li)
 	
-	const span = document.querySelectorAll('.todo-item span')
-	console.log(span)
+	const span = document.querySelectorAll('.todo-item span') 
+
 	const checkbox = document.querySelectorAll('.todo-item__checkbox');
-	Array.from(checkbox).forEach((checkBtn)=> {
-		checkBtn.addEventListener('click', ()=> {
-			span.classList.add('completed')
-			// console.log(span.classList.add('completed'))
-			
-		})
+
+	checkbox[checkbox.length - 1].addEventListener('click', ()=> {
+		span[span.length - 1].classList.add('completed');			
 	})
+
 	const deleteBtn = document.querySelectorAll('.icon-delete')
 	Array.from(deleteBtn).forEach((deleteButton) => {
 		deleteButton.addEventListener('click', () => {
@@ -33,7 +31,7 @@ function addTodo(todo) {
 		});
 	  });
 			
-	}
+}
 
 
 
