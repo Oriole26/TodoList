@@ -4,18 +4,28 @@ const addBtn = document.querySelector('.todo-btn');
 
 function addTodo(todo) {
 	const li = document.createElement('li');
-    const checkbox = document.querySelectorAll('.todo-item__checkbox')
+	
   
 	li.setAttribute('class', 'todo-item');
 	li.innerHTML = `<input type="checkbox" class="todo-item__checkbox" >
-					<span ${todo.completed?'completed':''}>${todo.text}</span>
+					<span>${todo.text}</span>
 					<i class="icon-delete fa-solid fa-trash" ></i>
 					`
 	
 
-				
-	
+		
 	list.appendChild(li)
+	
+	const span = document.querySelectorAll('.todo-item span')
+	console.log(span)
+	const checkbox = document.querySelectorAll('.todo-item__checkbox');
+	Array.from(checkbox).forEach((checkBtn)=> {
+		checkBtn.addEventListener('click', ()=> {
+			span.classList.add('completed')
+			// console.log(span.classList.add('completed'))
+			
+		})
+	})
 	const deleteBtn = document.querySelectorAll('.icon-delete')
 	Array.from(deleteBtn).forEach((deleteButton) => {
 		deleteButton.addEventListener('click', () => {
@@ -30,33 +40,35 @@ function addTodo(todo) {
 	addBtn.onclick = function() {
 		const text = input.value.trim()
 		if(	text != '')
-		addTodo({text, completed:false})
+		addTodo({text})
 		input.value= ''
 	}
 
 	input.onkeydown = function(e) {
 		const text = input.value.trim()
 		if(e.keyCode == '13' && text != '') {
-			addTodo({text, completed:false})
+			addTodo({text})
+		    input.value= ''
+
 		}
 		
 	}
 
 
 
-	function updateTodos() {
-		const listItem = document.querySelectorAll('li')
-		
-		const todos = []
 	
-		listItem.forEach((item) => {
-			todos.push({
-				text: item.querySelector('span').innerHTML,
-				completed: item.classList.contains('completed')
+		// const listItem = document.querySelectorAll('li')
+		
+		// const todos = []
+	
+		// listItem.forEach((item) => {
+		// 	todos.push({
+		// 		text: item.querySelector('span').innerHTML,
+		// 		completed: item.classList.contains('completed')
 				
-			})
-		})
-	}
+		// 	})
+		// })
+	
 
 
 // const todoList = document.querySelector('.todo-list');

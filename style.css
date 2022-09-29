@@ -89,9 +89,10 @@ body {
 }
 .todo-item span {
     flex: 1;
+    padding-left: 10px;
 }
 
-.todo-item span .completed {
+.todo-item span.completed {
     color: #b6b6b6;
     text-decoration: line-through;
 }
