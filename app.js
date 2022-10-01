@@ -53,22 +53,22 @@ function addTodo(todo) {
 	}
 //filter todo all/active/complete
 const filterBtns = document.querySelectorAll('.todo-list__title span');
-const listItem = document.querySelectorAll('.todo-list');
 
-for(i = 0; i<filterBtns.length; i++) {
+for (let i = 0; i < filterBtns.length; i++) {
 	filterBtns[i].onclick = (e) => {
+		const listItem = document.querySelectorAll('.todo-item');
 		const filter = e.target.dataset.filter;
 		console.log(filter)
-		listItem.forEach((todo)=>{
-			if(filter === 'All'){
-				todo.style.display = 'block';
+		listItem.forEach((todo) => {
+			if (filter === 'All') {
+				todo.style.display = 'flex';
 				// filterBtns.classList.add('active')
-			}
-			else {
-				if(todo.classList.contains(filter)){
-	
-					todo.style.display = 'block';
-					
+			} else {
+				console.log(todo.classList.contains(filter));
+				if (todo.childNodes[2].classList.contains(filter)) {
+
+					todo.style.display = 'flex';
+
 				}
 				else {
 					todo.style.display = 'none';
