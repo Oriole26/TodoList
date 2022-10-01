@@ -7,6 +7,7 @@ function addTodo(todo) {
 	li.setAttribute('class', 'todo-item');
 	li.innerHTML = `<input type="checkbox" class="todo-item__checkbox" >
 					<span>${todo.text}</span>
+					<i class="icon-edit fa-solid fa-pen-to-square"></i>
 					<i class="icon-delete fa-solid fa-trash" ></i>
 					`	
 	list.appendChild(li)
@@ -25,6 +26,13 @@ function addTodo(todo) {
 			deleteButton.parentNode.remove();
 		}
 	  });
+	//Edit item when click icon 
+	const editBtn = document.querySelectorAll('.icon-edit');
+	  editBtn.forEach((editbtn,index) =>{
+		editbtn.onclick = function() {
+			
+		}
+	  })
 			
 	}
 	//Add new item when click Add Btn
