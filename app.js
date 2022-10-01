@@ -54,13 +54,13 @@ for (let i = 0; i < filterBtns.length; i++) {
 		console.log(filter)
 		listItem.forEach((todo) => {
 			if (filter === 'All') {
-				todo.style.display = 'block';
+				todo.style.display = 'flex';
 				// filterBtns.classList.add('active')
 			} else {
 				console.log(todo.classList.contains(filter));
-				if (todo.classList.contains(filter)) {
+				if (todo.childNodes[2].classList.contains(filter)) {
 
-					todo.style.display = 'block';
+					todo.style.display = 'flex';
 
 				}
 				else {
